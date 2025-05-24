@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aman's Portfolio 💼</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    :root {
+      --primary: #00f5d4;
+      --dark: #0f0f0f;
+      --glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f0f0f, #1c1c1c);
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    section {
+      padding: 120px 20px 80px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero span {
+      color: var(--primary);
+      animation: glow 2s infinite alternate;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: black;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #00c9a7;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px var(--primary); }
+      to { text-shadow: 0 0 20px var(--primary); }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--glass);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      background: var(--primary);
+      color: black;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .contact button {
+      background: var(--primary);
+      color: black;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>👨‍💻 Aman</h1>
+    <nav>
+      <a href="#home">🏠 Home</a>
+      <a href="#projects">🛠 Projects</a>
+      <a href="#about">📘 About</a>
+      <a href="#contact">✉️ Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Hey, I'm <span>Aman</span> 👋</h1>
+    <p>I build awesome websites and frontend experiences. ✨</p>
+    <a href="#projects" class="btn">🚀 View My Work</a>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>🛠 My Projects</h2>
+    <div class="project-grid">
+      <div class="project">📱 Mobile UI Design</div>
+      <div class="project">💻 Responsive Web App</div>
+      <div class="project">🎮 Game Dashboard</div>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h2>📘 About Me</h2>
+    <p>Hi! I'm Aman, a frontend developer based in India 🇮🇳. I specialize in crafting responsive websites, smooth animations, and beautiful UIs that deliver great user experiences.</p>
+  </section>
+
+  <section id="contact" class="contact" data-aos="fade-left">
+    <h2>✉️ Contact Me</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">📨 Send Message</button>
+    </form>
+    <p id="responseMsg" style="text-align:center; margin-top:10px;"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Aman. Built with 💙 and ☕</p>
+  </footer>
+
+  <!-- Animation Libraries -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+
+    function sendMessage(e) {
+      e.preventDefault();
+      document.getElementById('responseMsg').textContent = "✅ Message sent successfully!";
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
