@@ -1,25 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aman's Portfolio 💼</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
-<h1 align="center">
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px" height="30px"/>
-  Namaste, I'm Priyanshu Kumar!
-  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px" height="30px"/>
-</h1>
+<style>
+    :root {
+  --primary: #00f5d4;
+  --dark: #0f0f0f;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+  background-size: 300% 300%;
+  animation: bgShift 20s ease infinite;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+  animation: slideDown 1.2s ease forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+header h1 {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+section {
+  padding: 120px 20px 80px;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: typing 3s steps(20), blink 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--primary);
+  max-width: 100%;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.hero span {
+  color: var(--primary);
+  animation: glow 2s infinite alternate;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+  background: var(--primary);
+  color: black;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  background: #00c9a7;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px var(--primary); }
+  to { text-shadow: 0 0 20px var(--primary); }
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  background: var(--glass);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #222;
+  perspective: 1000px;
+  transition: transform 0.4s ease;
+}
+
+.project:hover {
+  transform: rotateY(10deg) scale(1.05);
+  background: var(--primary);
+  color: black;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.contact input, .contact textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  animation: fadeIn 1.2s ease;
+}
+
+.contact button {
+  background: var(--primary);
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.contact button:hover {
+  background: #00c9a7;
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  font-size: 0.9rem;
+  color: #aaa;
+  animation: fadeIn 1s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  header { flex-direction: column; align-items: flex-start; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+
+</style>
 <body>
-   <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=00FF00&center=true&vCenter=true&width=500&lines=Java+%7C+Spring+Boot+%7C+Microservices;DSA+%7C+Problem+Solver;Open+Source+Contributor;Always+Learning+New+Tech" alt="Typing Animation"/>
-<p align="center">
-  <a href="start.html" style="font-size: 20px; color: #00FF00; font-weight: bold;">🎬 Click Here to View My Movie Page 🎥</a>
-</p>
 
+    
 
-</p>
-     <footer> Thanks You for wisiting ::</footer>
+  <header>
+    <h1>👨‍💻 Aman</h1>
+    <nav>
+      <a href="#home">🏠 Home</a>
+      <a href="#projects">🛠 Projects</a>
+      <a href="#about">📘 About</a>
+      <a href="#contact">✉️ Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Hey, I'm <span>Aman</span> 👋</h1>
+    <p>I build awesome websites and frontend experiences. ✨</p>
+    <a href="#projects" class="btn">🚀 View My Work</a>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>🛠 My Projects</h2>
+    <div class="project-grid">
+      <div class="project">📱 Mobile UI Design</div>
+      <div class="project">💻 Responsive Web App</div>
+      <div class="project">🎮 Game Dashboard</div>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h2>📘 About Me</h2>
+    <p>Hi! I'm Aman, a frontend developer based in India 🇮🇳. I specialize in crafting responsive websites, smooth animations, and beautiful UIs that deliver great user experiences.</p>
+  </section>
+
+  <section id="contact" class="contact" data-aos="fade-left">
+    <h2>✉️ Contact Me</h2>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">📨 Send Message</button>
+    </form>
+    <p id="responseMsg" style="text-align:center; margin-top:10px;"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Aman. Built with 💙 and ☕</p>
+  </footer>
+
+  <!-- Animation Libraries -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+
+    function sendMessage(e) {
+      e.preventDefault();
+      document.getElementById('responseMsg').textContent = "✅ Message sent successfully!";
+      e.target.reset();
+    }
+  </script>
+
 </body>
-
 </html>
