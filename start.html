@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Background video styling */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Overlay to make text more readable */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    /* Header styles */
+    header {
+      background: transparent;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Cards Container */
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card {
+      position: relative;
+      width: 250px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(51, 51, 51, 0.8);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s ease;
+    }
+
+    /* Long page simulation */
+    .content {
+      height: 1000px;
+      background: transparent;
+    }
+
+    /* Registration Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(34, 34, 34, 0.9);
+      padding: 20px;
+      border: 1px solid #444;
+      z-index: 2000;
+    }
+
+    .popup input {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+
+    .join-full-form {
+      display: none;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      background: #ff0;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="/MovieApp/Jumping A Lykan HyperSport Between The Etihad Towers ｜ Furious 7 ｜ Full Throttle.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Dark overlay for readability -->
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <a onclick="scrollToTop()">Home</a>
+    <a onclick="alert('About Section Coming Soon!')">About</a>
+    <a onclick="openPopup()">Registration</a>
+  </header>
+
+  <!-- Cards -->
+  <div class="cards-container">
+    <div class="card">
+      <img src="/MovieApp/post1.jpg" alt="Movie 1">
+    </div>
+    <div class="card">
+      <img src="/MovieApp/Post2.jpg" alt="Movie 2">
+    </div>
+    <div class="card">
+      <img src="/MovieApp/Post3.jpg" alt="Movie 3">
+    </div>
+    <div class="card">
+      <img src="/MovieApp/Post4.jpg" alt="Movie 4">
+    </div>
+  </div>
+
+  <!-- Simulated long page -->
+  <div class="content"></div>
+
+  <!-- Registration Popup -->
+  <div class="popup" id="regPopup">
+    <h3>Register</h3>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="openJoinForm()">Join Now</button>
+
+    <div class="join-full-form" id="joinForm">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="Favorite Movie">
+      <button onclick="alert('Form Submitted!')">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openPopup() {
+      document.getElementById("regPopup").style.display = "block";
+    }
+
+    function openJoinForm() {
+      document.getElementById("joinForm").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
